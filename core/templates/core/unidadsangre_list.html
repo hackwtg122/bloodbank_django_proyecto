@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="container mt-4">
+  <h2>Inventario de Sangre</h2>
+  <a href="{% url 'unidad-crear' %}" class="btn btn-success mb-3">Agregar Unidad</a>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Tipo</th>
+        <th>Cantidad (ml)</th>
+        <th>Fecha</th>
+        <th>Donante</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for u in object_list %}
+      <tr>
+        <td>{{ u.tipo_sangre }}</td>
+        <td>{{ u.cantidad_ml }}</td>
+        <td>{{ u.fecha_donacion }}</td>
+        <td>{{ u.donante }}</td>
+        <td>
+          <a href="{% url 'unidad-editar' u.pk %}" class="btn btn-primary btn-sm">Editar</a>
+          <a href="{% url 'unidad-eliminar' u.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

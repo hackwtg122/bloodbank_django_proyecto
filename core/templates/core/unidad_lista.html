@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h2>Unidads</h2>
+<a class="btn btn-primary" href="{% url 'unidad-nueva' %}">Añadir</a>
+<table class="table">
+<thead><tr><th>ID</th><th>Info</th><th></th></tr></thead>
+<tbody>{% for obj in object_list %}<tr><td>{{ obj.pk }}</td><td>{{ obj }}</td><td>
+<a href="{% url 'unidad-editar' obj.pk %}">Editar</a></td></tr>{% empty %}<tr><td colspan="3">Sin datos</td></tr>{% endfor %}</tbody>
+</table>{% endblock %}

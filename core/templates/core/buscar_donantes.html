@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h2>Buscar Donantes</h2>
+<form method="get" class="row g-3 mb-3">
+  <div class="col-md-3"><input type="text" name="q" class="form-control" placeholder="Nombre o historial" value="{{ q }}"></div>
+  <div class="col-md-2">
+    <select name="tipo" class="form-select">
+      <option value="">Tipo sangre</option>
+      {% for t in "O+ O- A+ A- B+ B- AB+ AB-".split %}
+        <option value="{{t}}" {% if tipo == t %}selected{% endif %}>{{t}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-2"><input type="date" name="desde" class="form-control" value="{{ desde }}"></div>
+  <div class="col-md-2"><input type="date" name="hasta" class="form-control" value="{{ hasta }}"></div>
+  <div class="col-md-3"><button class="btn btn-primary w-100">Buscar</button></div>
+</form>
+
+<table class="table table-striped">
+  <thead><tr><th>Nombre</th><th>Tipo</th><th>Última Donación</th></tr></thead>
+  <tbody>
+    {% for donante in donantes %}
+      <tr><td>{{ donante.nombre }}</td><td>{{ donante.tipo_sangre }}</td><td>{{ donante.ultima_donacion }}</td></tr>
+    {% empty %}
+      <tr><td colspan="3">No se encontraron resultados.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

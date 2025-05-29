@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Inventario de Sangre</h2>
+  <ul class="list-group mt-3">
+    {% for unidad in object_list %}
+      <li class="list-group-item">
+  {{ unidad.tipo_sangre }} — {{ unidad.cantidad_ml }} ml — Donado: {{ unidad.fecha_donacion }} — Por: {{ unidad.donante.nombre }}
+</li>
+    {% empty %}
+      <li class="list-group-item">No hay unidades registradas.</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h2>¿Estás seguro que deseas eliminar esta unidad de sangre?</h2>
+<form method="post">{% csrf_token %}
+  <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+  <a href="{% url 'unidades' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "core/base.html" %}
+
+{% block title %}Detalle del Donante{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Detalle del Donante</h4>
+    </div>
+    <div class="card-body">
+      <dl class="row">
+        <dt class="col-sm-4">Nombre</dt>
+        <dd class="col-sm-8">{{ object.nombre }}</dd>
+
+        <dt class="col-sm-4">Edad</dt>
+        <dd class="col-sm-8">{{ object.edad }}</dd>
+
+        <dt class="col-sm-4">Tipo de Sangre</dt>
+        <dd class="col-sm-8">{{ object.tipo_sangre }}</dd>
+
+        <dt class="col-sm-4">Última Donación</dt>
+        <dd class="col-sm-8">{{ object.ultima_donacion }}</dd>
+
+        <dt class="col-sm-4">Dirección</dt>
+        <dd class="col-sm-8">{{ object.direccion }}</dd>
+
+        <dt class="col-sm-4">Teléfono</dt>
+        <dd class="col-sm-8">{{ object.telefono }}</dd>
+
+        <dt class="col-sm-4">Historial Médico</dt>
+        <dd class="col-sm-8">{{ object.historial_medico }}</dd>
+      </dl>
+    </div>
+    <div class="card-footer text-end">
+      <a href="{% url 'donantes' %}" class="btn btn-secondary">Volver</a>
+      <a href="{% url 'donante-editar' object.pk %}" class="btn btn-warning">Editar</a>
+      <a href="{% url 'donante-eliminar' donante.id %}" class="btn btn-danger">Eliminar</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

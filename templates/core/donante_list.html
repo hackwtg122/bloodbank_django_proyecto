@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Listado de Donantes</h2>
+
+<ul class="list-group p-4">
+  {% for donante in donantes %}
+    <li class="list-group-item">
+      {{ donante.nombre }} — {{ donante.tipo_sangre }} — {{ donante.edad }} años
+    </li>
+  {% empty %}
+    <li class="list-group-item">No hay donantes registrados.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">Panel</h2>
+
+<div class="alert alert-info">
+  Total donantes: {{ donantes }}
+</div>
+
+<div class="card shadow-sm">
+  <div class="card-header fw-bold">Inventario</div>
+  <div class="card-body p-0">
+    <table class="table table-striped mb-0">
+      <thead class="table-light">
+        <tr>
+          <th>Tipo</th>
+          <th>Unidades</th>
+          <th>Total ml</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in inventario %}
+        <tr>
+          <td>{{ i.tipo_sangre }}</td>
+          <td>{{ i.unidades }}</td>
+          <td>{{ i.total }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3">No hay unidades registradas</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

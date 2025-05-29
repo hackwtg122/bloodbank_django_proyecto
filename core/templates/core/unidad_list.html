@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Unidades disponibles</h2>
+  <table class="table">
+    <thead>
+      <tr><th>Tipo</th><th>Mililitros</th><th>Fecha</th></tr>
+    </thead>
+    <tbody>
+      {% for u in unidades %}
+      <tr>
+        <td>{{ u.tipo }}</td>
+        <td>{{ u.mililitros }}</td>
+        <td>{{ u.fecha_creacion|date:"d M Y" }}</td>
+      </tr>
+      {% empty %}<tr><td colspan="3">No hay unidades registradas.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

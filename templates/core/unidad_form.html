@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+<div class="container mt-4">
+  <h2><i class="fas fa-vial"></i> Registrar Nueva Unidad de Sangre</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn btn-success mt-2">
+      <i class="fas fa-save"></i> Guardar
+    </button>
+  </form>
+</div>
+{% endblock %}

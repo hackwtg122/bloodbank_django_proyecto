@@ -1,0 +1,8 @@
+{% for donante in donantes %}
+    <li>
+        Nombre: {{ donante.nombre|default:"Sin nombre" }}<br>
+        Tipo: {{ donante.tipo_sangre|default:"Sin tipo" }}<br>
+        Edad: {{ donante.edad|default:"Sin edad" }}<br>
+        Campo dict: {{ donante.__dict__ }}
+    </li>
+{% endfor %}

@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Bienvenido al Banco de Sangre</h2>
+  <p class="lead">Administra donantes, inventario de sangre y solicitudes desde este panel central.</p>
+
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h5>Donantes</h5>
+        <p>Consulta y gestiona el listado de donantes registrados.</p>
+        <a href="{% url 'donantes' %}" class="btn btn-primary">Ver Donantes</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h5>Inventario</h5>
+        <p>Visualiza el inventario de sangre disponible por tipo.</p>
+        <a href="{% url 'unidades' %}" class="btn btn-success">Ver Inventario</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h5>Solicitudes</h5>
+        <p>Administra las solicitudes de sangre entrantes.</p>
+        <a href="{% url 'solicitudes' %}" class="btn btn-danger">Ver Solicitudes</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

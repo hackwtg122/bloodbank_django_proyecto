@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<h2>Solicitudes de Sangre</h2>
+
+<ul class="list-group p-4">
+  {% for solicitud in solicitudes %}
+    <li class="list-group-item">
+      {{ solicitud.tipo_sangre }} — {{ solicitud.cantidad_ml }} ml — Estado: {{ solicitud.estado }} — Urgencia: {{ solicitud.urgencia }} — Por: {{ solicitud.usuario.username }}
+    </li>
+  {% empty %}
+    <li class="list-group-item">No hay solicitudes registradas.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
